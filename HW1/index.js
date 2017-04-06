@@ -38,7 +38,6 @@ http.createServer(function(req, res) {
         case '/about': 
             serveStaticFile(res, '/public/about.html', 'text/html');
             break; 
-        
         default:  
             serveStaticFile(res, '/public/404.html', 'text/html', 404);
             break;

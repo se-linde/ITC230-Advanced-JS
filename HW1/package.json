@@ -1,0 +1,25 @@
+{
+  "name": "hw1",
+  "version": "1.0.0",
+  "description": "Homework Assignment 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/se-linde/ITC230-Advanced-JS/tree/master/HW1"
+  },
+  "keywords": [
+    "log",
+    "logging",
+    "contesting",
+    "amateur",
+    "ham",
+    "radio",
+    "QSL",
+    "FCC"
+  ],
+  "author": "Dwayne Linde, N7YYZ",
+  "license": "ISC"
+}
