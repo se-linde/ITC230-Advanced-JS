@@ -19,9 +19,9 @@ function serveStaticFile(res, path, contentType, responseCode) {
                 {'Content-Type': contentType}); 
             res.end(data);         
         }
-        
     }); 
 }
+
 
 // The switch in the app. 
 
@@ -67,7 +67,6 @@ http.createServer(function(req, res) {
             break;
     }
     
-        
         
 }).listen(3000); 
 
