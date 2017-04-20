@@ -31,13 +31,14 @@ exports.get = (callsign) => {
 // Test record - bad callsign: N7ABC
 
   exports.delete = (callsign) => {
-        let oldLength = hams.length;
+        var oldLength = hams.length;
         var newHams = hams.filter((item) => {
             return item.callsign !== callsign;
         });
       
+        var deletethis = (newHams.length == oldLength) ? "" : "deletethis"; 
         hams = newHams; 
-        return { deleted: hams.length !== oldLength, total: hams.length}   
+        return { "CallsignAction": deletethis, "Total": hams.length }   
     };
 
 

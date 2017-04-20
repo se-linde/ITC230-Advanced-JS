@@ -4,6 +4,9 @@
 var http = require ('http'); 
 var fs = require ('fs'); 
 var qs = require("querystring"), hams = require("./lib/callsigns"); 
+
+
+
 // var qsnew = require("querystring"), deleteObject = require("./lib/callsigns");
 
 // This is the function that sets up the pathing and 
@@ -33,6 +36,8 @@ http.createServer(function(req, res) {
     
     var params = qs.parse(url[1]); 
     console.log(params); 
+    
+    let found = hams.get(params.callsign);
     // Normalizing the url, making the extra trailing slash optional, 
     // making the url lowercase. 
     
@@ -49,7 +54,8 @@ http.createServer(function(req, res) {
         case '/search':
             console.log(hams.get(params.callsign))
             res.writeHead (200, {'Content-Type': 'text/plain'});
-            res.end('Welcome to the Callsign App Search Page!'); 
+            // res.end('Welcome to the Callsign App Search Page!'); 
+            res.end('Callsign Results: ' + params.callsign + "\n" + JSON.stringify(found));
             break;    
         case '/add':
             console.log(hams.add(params.callsign))
@@ -57,9 +63,11 @@ http.createServer(function(req, res) {
             res.end('Welcome to the callsign add page!'); 
             break;    
         case '/delete':
+            var deletethis = hams.delete(params.callsign);
             console.log(hams.delete(params.callsign)) // THIS IS where 'delete' would be. 
             res.writeHead (200, {'Content-Type': 'text/plain'});
-            res.end('Welcome to the Callsign App Delete Page!'); 
+            res.end('Callsign record deleted' + '\n' + 'Callsign: ' + params.callsign + '\n' + 'Total Callsigns Remaining:' +  deletethis.Total);
+            
             break;        
         default:  
             res.writeHead (404, {'Content-Type': 'text/plain'});
