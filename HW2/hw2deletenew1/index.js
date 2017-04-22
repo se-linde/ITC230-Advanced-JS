@@ -61,7 +61,7 @@ http.createServer(function(req, res) {
             hams.add(params);
             // var hamsadd = hams.add(params);
             res.writeHead (200, {'Content-Type': 'text/plain'});
-            res.end('Callsign record added' + '\n' + 'Callsign: ' + params.callsign + '\n' + 'Operator: ' + params.operator + '\n' + 'Residential Zip: ' + params.zip); 
+            res.end('Callsign record added' + '\n' + 'ID: ' + params.id  + '\n' + 'Callsign: ' + params.callsign + '\n' + 'Operator: ' + params.operator + '\n' + 'Residential Zip: ' + params.zip); 
             break;    
         case '/delete':
             var deletethis = hams.delete(params.callsign);

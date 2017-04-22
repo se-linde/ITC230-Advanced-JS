@@ -43,11 +43,23 @@ exports.get = (callsign) => {
 
 
 exports.add = (newHam) => {
+    
+    var maxid = 0; 
+    
+    hams.map(function(obj) {
+        
+        if (obj.id > maxid) maxid = obj.id; 
+    }); 
+    
+    // var newID = id++; 
+    // console.log(newID); 
+    
     var hamCallsign = newHam.callsign; 
     var hamOperator = newHam.operator; 
     var hamZip = newHam.zip; 
+    var hamid = maxid++; 
     
-    var totalHam = {callsign : hamCallsign, operator : hamOperator, zip: hamZip}; 
+    var totalHam = {id : hamid, callsign : hamCallsign, operator : hamOperator, zip: hamZip}; 
     hams.push(totalHam);  
     
 }; 
