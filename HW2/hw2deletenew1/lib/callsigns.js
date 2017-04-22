@@ -42,7 +42,15 @@ exports.get = (callsign) => {
     };
 
 
-
+exports.add = (newHam) => {
+    var hamCallsign = newHam.callsign; 
+    var hamOperator = newHam.operator; 
+    var hamZip = newHam.zip; 
+    
+    var totalHam = {callsign : hamCallsign, operator : hamOperator, zip: hamZip}; 
+    hams.push(totalHam);  
+    
+}; 
 
     
 // This just returns a search variable; I didn't write any add function for this. 

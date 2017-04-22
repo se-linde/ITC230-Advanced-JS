@@ -52,15 +52,16 @@ http.createServer(function(req, res) {
             break;
         
         case '/search':
-            console.log(hams.get(params.callsign))
+            console.log(hams.get(params.callsign));
             res.writeHead (200, {'Content-Type': 'text/plain'});
             // res.end('Welcome to the Callsign App Search Page!'); 
             res.end('Callsign Results: ' + params.callsign + "\n" + JSON.stringify(found));
             break;    
         case '/add':
-            console.log(hams.add(params.callsign))
+            hams.add(params);
+            // var hamsadd = hams.add(params);
             res.writeHead (200, {'Content-Type': 'text/plain'});
-            res.end('Welcome to the callsign add page!'); 
+            res.end('Callsign record added' + '\n' + 'Callsign: ' + params.callsign + '\n' + 'Operator: ' + params.operator + '\n' + 'Residential Zip: ' + params.zip); 
             break;    
         case '/delete':
             var deletethis = hams.delete(params.callsign);
