@@ -21,7 +21,7 @@ let hams = [{callsign: "A1AAA", operator: "Bones Hillman", zip: 98108},
 
 exports.get = (callsign) => {
     return hams.find((item) => {
-        return item.callsign = callsign; 
+        return item.callsign == callsign; 
     });
 }; 
 
