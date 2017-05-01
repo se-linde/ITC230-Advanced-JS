@@ -1,0 +1,30 @@
+{
+  "name": "itc230",
+  "version": "1.0.0",
+  "description": "ITC230 class",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Dwayne Linde",
+  "license": "MIT",
+
+  "bugs": {
+    "url": "https://github.com/se-linde/ITC230-Advanced-JS/issues"
+  },
+  "homepage": "https://github.com/se-linde/ITC230-Advanced-JS#readme",    
+    
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cheerio": "^0.20.0",
+    "cors": "^2.7.1",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.4.15"
+  }    
+}
+
+

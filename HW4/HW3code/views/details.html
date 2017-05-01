@@ -1,0 +1,21 @@
+<html>
+<body>
+    <a href="/">Home!</a>
+<h2>Details for {{callsign}} </h2>
+    {{#if result}}
+    
+    <li>Callsign: {{result.callsign}}</li>
+    <li>Operator: {{result.operator}}</li>
+    <li>Zip: {{result.zip}}</li>
+    
+    <p>
+    <a href="/delete?callsign={{result.callsign}}">Delete</a>
+    </p>
+    
+    {{else}}
+    Callsign Not Found!
+    
+    {{/if}}
+    
+</body>
+</html>
