@@ -1,0 +1,26 @@
+<html>
+    
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+    
+<body>
+<h2>Home! Please enter a callsign here to search for.</h2>    
+<form method="POST" action="/get">
+    <input type="text" name="callsign" placeholder="callsign" required maxlength="100">
+    
+    
+    <button>Search Here!</button>
+    
+</form>
+    
+<form method="POST" action="/add">
+    <input type="text" name="callsign" placeholder="Enter Your Callsign Here" required maxlength="20">
+    <input type="text" name= "operator" placeholder="Enter Your Operator Name Here" required maxlength="100">
+    <input type="text" name= "zip" placeholder="Enter Your Zip Code Here" required maxlength="15">
+    <button>Add Here!</button>
+</form>
+    
+    
+</body>
+</html>
