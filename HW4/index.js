@@ -1,7 +1,4 @@
-// HW3 by Dwayne Linde
-// HW2 but using Express and Handlebars. 
-
-// replace 'book' with 'ham', replace 'books' with 'hams', replace 'title' with 'callsign'. 
+// HW4 by Dwayne Linde
 
 "use strict"; 
 
