@@ -1,0 +1,20 @@
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<body>
+    <h1>Home</h1>
+<h2>Ham Operator Callsigns</h2>
+
+<form method="POST" action="/get">
+    <input type="text" name="callsign" placeholder="Enter Callsign Here" required maxlength="25">
+    <button>Search</button>
+</form>
+
+<form method="POST" action="/add">
+    <input type="text" name="callsign" placeholder="Enter Callsign Here" required maxlength="25">
+    <input type="text" name= "operator" placeholder="Enter Operator Name Here" required maxlength="200">
+    <input type="text" name= "zip" placeholder="Enter Zip Here" required maxlength="25">
+    <button>Add</button>
+</form>
+
+</body>
+</html>

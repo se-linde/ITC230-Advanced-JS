@@ -1,0 +1,11 @@
+<html>
+    <body>
+        <a href ="/">Home</a>
+        {{#if result.RecordAction}}
+        <h2>{{callsign}} Ham Deleted</h2>
+        Total: {{result.Total}}
+        {{else}}
+        <h2>{{callsign}} callsign not found</h2>
+        {{/if}}
+    </body>
+</html>
