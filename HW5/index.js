@@ -50,9 +50,13 @@ app.post('/search', function(req,res){
 
 app.post('/add', function(req,res) {
     res.type('text/html');
+    
     let completeHam = {callsign : req.body.callsign, operator : req.body.operator, zip : req.body.zip};
     let result = ham.add(completeHam);
     res.render('detail', {ham: completeHam, result: result});   
+    
+    console.log(completeHam);
+    console.log(result); 
 });
 
 app.post('/delete', function(req,res){
