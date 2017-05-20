@@ -1,0 +1,14 @@
+<h2>Ham Radio Home</h2>
+<form method="POST" action="/get">
+    <input type="text" name"callsign" placeholder="callsign" required maxlength="25">
+    <button>Search Here!</button>
+</form>
+
+{{#if hams}}
+<h3>List of Hams!</h3>
+{{/if}}
+{{#each hams}}
+    <li><a href="/get?callsign={{callsign}}">{{callsign}}</a></li>
+{{/each}}
+</body>
+
