@@ -1,20 +1,14 @@
-<html>
-    <body>
-        <a href="/">Home</a>
-        
-        {{#if result}}
-        <h2>Record Details For: {{callsign}}</h2>
-        <ul>
-            <li>Title: {{result.callsign}}</li>
-            <li>Year: {{result.operator}}</li>
-            <li>Label: {{result.zip}}</li>
-        </ul>
-        <p>
-            <a href="/delete?name={{result.callsign}}">Delete</a>
-        </p>
-        {{else}}
-        <h2>{{callsign}} callsign not found</h2>
-        <h2>Add new - {{ham.callsign}}</h2>
-        {{/if}}
-    </body>
-</html>
+{{#if result}}
+    <h2>Ham Details For: {{result.callsign}}</h2>
+    <ul>
+        <li>Callsign: {{result.callsign}}</li>
+        <li>Operator: {{result.operator}}</li>
+        <li>Zip: {{result.zip}}</li>
+    </ul>
+    <p>
+        <a href="/delete?callsign={{result.callsign}}">Delete</a>
+    </p>
+    {{else}}
+    <h2>{{callsign}} callsign not found</h2>
+    
+{{/if}}

@@ -28,15 +28,19 @@ let hams = [{id: 0, callsign: "A1AAA", operator: "Bones Hillman", zip: 98108},
             return item.callsign == callsign;
         });
     };
-    
+
+
+
     exports.delete = (callsign) => {
-        var hamLen = hams.length;
-        hams = hams.filter((item) => {
-            return item.callsign !== callsign;
-        });
-        var deleted = (hams.length == hamLen) ? "" : "Ham Callsign Deleted";
-        return { "HamAction": deleted, "Total": hams.length};
-    };
+        const oldLength = hams.length; 
+        let newHams = hams.filter((item) => {
+            return item.callsign !== callsign; 
+        }); 
+        hams = newHams; 
+        // If the old and new arrays differ, item is deleted. 
+        return {deleted: oldLength !== hams.length, total: hams.length}; 
+    }; 
+
     
     exports.add = (newHam) => {
         
