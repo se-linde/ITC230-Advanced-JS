@@ -11,6 +11,10 @@ var Ham = require("./models/ham");
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/../public'));
 app.use(require("body-parser").urlencoded({extended: true}));
+app.use ((err, req, res, next) => {
+    console.log(err)
+}); 
+
 
 // Templates via handlebars
 let handlebars =  require("express-handlebars");
@@ -23,8 +27,16 @@ app.set("view engine", ".html");
 app.get('/', (req, res) => {
     Ham.find((err,hams) => {
         if (err) return next(err); 
-        res.render('home', {hams: hams});
-        
+        res.render('home', {hams: hams}); 
+    });
+});
+
+// get - search details?
+
+app.get('/', (req, res) => {
+    Ham.find((err,hams) => {
+        if (err) return next(err); 
+        res.render('home', {hams: hams}); 
     });
 });
 
@@ -36,6 +48,7 @@ app.get('/about', (req,res) => {
 }); 
 
 // Get - Details Page. 
+//GET requires REQ.QUERY
 
 app.get('/get', (req,res) => {
    Ham.findOne ({ callsign:req.query.callsign }, (err, ham) => {
@@ -46,9 +59,10 @@ app.get('/get', (req,res) => {
 });
 
 // Post - Details Page. 
+// POST requires REQ.BODY
 
 app.post('/get', (req,res) => {
-   Ham.findOne ({ callsign:req.query.callsign }, (err, ham) => {
+   Ham.findOne ({ callsign:req.body.callsign }, (err, ham) => {
        if (err) return next(err); 
        res.type('text/html');
        res.render('details', {result: ham}); 
@@ -80,5 +94,5 @@ app.use((req,res) => {
 // Listens for signals from beyond.
 
 app.listen(app.get('port'), () => {
-    console.log('Express started, hit Ctrl+C to end.');    
+    console.log('Express started for HW6, hit Ctrl+C to end.');    
 });
