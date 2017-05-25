@@ -1,0 +1,14 @@
+{{#if result}}
+
+    <h2>{{result.callsign}} details:</h2>
+    <li>ID Number: {{result.id}}</li>
+    <li>Callsign: {{result.callsign}}</li>
+    <li>Operator: {{result.operator}}</li>
+    <li>Zip: {{result.zip}}</li>
+    
+<p>
+<a href="/delete?callsign={{result.callsign}}">Delete</a>
+</p>
+{{else}}
+    <h2>{{result.callsign}} Not Found!</h2>
+{{/if}}
