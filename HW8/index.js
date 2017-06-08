@@ -25,7 +25,7 @@ let handlebars = require("express-handlebars");
 app.engine(".html", handlebars({extname: '.html', defaultLayout: 'main'})); 
 app.set("view engine", ".html"); 
 
-// Find callsigns. 
+// Find callsigns. Homepage. This works. 
 app.get('/', (req, res) => {
     Ham.find((err, hams) => {
         if (err) return next(err); 
@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
     });
 }); 
 
-// About section. 
+// About section. This works. 
 app.get('/about', (req, res) => {
     res.type('text/html'); 
     res.render('about');
@@ -42,26 +42,32 @@ app.get('/about', (req, res) => {
 // Apis. "Yaaaaaay!"
 
 // api for single callsign.
-app.get('api/ham/:callsign', (req, res, next) => {
+// This works now. 
+ app.get('/api/ham/:callsign', (req, res, next) => {
     let callsign = req.params.callsign; 
     console.log(callsign); 
     Ham.findOne({callsign: callsign}, (err, result) => {
         if (err || !result) return next(err); 
         res.json( result ); 
-    });
-}); 
+    }); 
+});
 
-// api for multiple callsigns 
+ 
+
+// api for multiple callsigns. This works. 
 app.get('/api/hams', (req, res, next) => {
-    Ham.find((err, results) => {
-        if (err || !results) return next(err); 
-        res.json(results); 
+    Ham.find((err, result) => {
+        if (err || !result) return next(err); 
+        res.json( result ); 
     });
 }); 
 
-// api for deletion of an item from the db. 
-app.get('api/delete/:callsign', (req, res, next) => {
-    Ham.remove({"callsign":req.params.callsign }, (err, result) => {
+
+
+// api for deletion of an item from the db. New. 
+// This works! 
+app.get('/api/ham/delete/:id', (req, res, next) => {
+    Ham.remove({"_id":req.params.id}, (err, result) => {
         if (err) return next(err); 
         // returns the number of items deleted. 
         res.json({"deleted": result.result.n}); 
@@ -118,6 +124,7 @@ app.use((req, res) => {
     res.send('404 - page not found'); 
 }); 
 
+// Tells the port it's listening, and how to kill on commmand. 
 app.listen(app.get('port'), () => {
     console.log('Express Started - press Ctrl + C to end.'); 
 }); 
