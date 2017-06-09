@@ -1,7 +1,8 @@
-// HW6 by Dwayne Linde
+// HW7 by Dwayne Linde
 
 // use as model for routes file: https://ide.c9.io/brendenw/itc230/lib/routes.js.
 // https://github.com/brendenwest/itc230/blob/master/6_databases/index.js
+
 
 "use strict"
 
@@ -134,7 +135,7 @@ app.get('/api/ham/add/:callsign/:operator/:zip', (req, res, next) => {
 app.use((req,res) => {
     res.type('text/plain');
     res.status(404); 
-    res.send("404 - Page Not Found."); 
+    res.send("404 - Page Not Found. Perhaps this page is missing, or you entered data in the API wrong? Feel free to try again!"); 
 }); 
 
 // Listens for signals from beyond.
