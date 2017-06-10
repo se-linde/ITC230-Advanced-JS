@@ -14,6 +14,9 @@ var Ham = require("./models/ham");
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/../public'));
 app.use(require("body-parser").urlencoded({extended: true}));
+
+// This allows for cross domain browsing; Cross Origin Resourse Sharing. 
+app.use('/api', require('cors')()); 
 app.use ((err, req, res, next) => {
     console.log(err)
 }); 
