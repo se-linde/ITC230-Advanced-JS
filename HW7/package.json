@@ -1,8 +1,8 @@
 
 {
-  "name": "datastorage",
+  "name": "ITC230 - Advanced JavaScript",
   "version": "1.0.0",
-  "description": "Data Storage",
+  "description": "Advanced JavaScript with Brenden West.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,7 +19,7 @@
    "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "handlebars": "^4.0.6",
+    "express-handlebars": "^3.0.0",
     "mongoose": "^4.9.8"
   },
   "bugs": {
