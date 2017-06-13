@@ -110,7 +110,7 @@ app.get('/delete', (req,res) => {
 });
 */ 
 
-/*
+
 // Get. Find. This works. 
 
 app.get('/api/ham', (req, res, next) => {
@@ -119,8 +119,8 @@ app.get('/api/ham', (req, res, next) => {
         res.json(results);   
     }); 
 });
-*/ 
-/* 
+
+
 // Get. Remove/Delete. This works. 
 
 app.get('/api/ham/delete/:callsign', (req,res) => {
@@ -129,11 +129,11 @@ app.get('/api/ham/delete/:callsign', (req,res) => {
         res.json({"deleted": result.result.n});    
     }); 
 });
-*/ 
+
 
 // Get. add. This works. 
 
-/* 
+
 app.get('/api/ham/add/:callsign/:operator/:zip', (req, res, next) => {
     // find and update existing items, or add a new one. 
     let callsign = req.params.callsign; 
@@ -142,7 +142,7 @@ app.get('/api/ham/add/:callsign/:operator/:zip', (req, res, next) => {
         res.json({updated: result.nModified}); 
     }); 
 }); 
-*/ 
+
 
 // POSTs - Extra Credit: 
 
@@ -155,7 +155,7 @@ app.post('/api/ham', (req, res, next) => {
     }); 
 });
 
-// POST - find one. This works as well! 
+// POST - find one. Rewrite if I need to. 
 
  app.post('/api/ham/:callsign', (req, res, next) => {
     let callsign = req.body.callsign; 
@@ -167,8 +167,7 @@ app.post('/api/ham', (req, res, next) => {
 });
 
 
-// POST - add. Version 1. This works, but I don't think that
-// this is what POST should do. But it works! 
+// POST - add. Version 1. Rewrite if I need to. 
 
 app.post('/api/ham/add/:callsign/:operator/:zip', (req, res, next) => {
     // find and update existing items, or add a new one. 
@@ -205,7 +204,7 @@ app.post('/api/add/', (req, res, next) => {
 });
 */ 
 
-// POST - delete. This works! 
+// POST - delete. Rewrite if I need to. 
 
 app.post('/api/ham/delete/:callsign', (req,res) => {
     Ham.remove({"callsign" : req.body.callsign}, (err, result) => {
