@@ -6,7 +6,7 @@ let express = require("express");
 let bodyParser = require("body-parser"); 
 let app = express();
 let Ham = require("./models/ham"); 
-// let cors = require('cors'); 
+let cors = require('cors'); 
 
 
 
